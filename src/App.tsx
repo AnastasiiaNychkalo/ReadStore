@@ -1,3 +1,4 @@
+import Footer from "./footer"
 
 
 function App() {
@@ -5,7 +6,7 @@ function App() {
 
   return (
     <>
-    
+      <Footer />
     </>
   )
 }
