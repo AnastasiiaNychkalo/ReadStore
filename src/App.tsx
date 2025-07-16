@@ -1,3 +1,4 @@
+import Sidebar from "./Sidebar"
 
 
 function App() {
@@ -5,7 +6,10 @@ function App() {
 
   return (
     <>
-    
+
+
+
+      <Sidebar />
     </>
   )
 }
