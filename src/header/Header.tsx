@@ -10,7 +10,7 @@ const Header: React.FC = () => {
 
 
   return (
-    <div className={"max-w-7xl mx-auto flex items-center justify-around gap-4 px-4 py-2"}>
+    <div className={"max-w-7xl mx-auto flex items-center justify-around gap-4 px-4 py-2 xl:h-50"}>
       <img src={logo} alt="Logo" className={"h-30 sm:h-40 md:h-45 lg:h-50 xl:h-60 hover:cursor-alias"} onClick={() => navigate("/")}/>
       <div className="relative w-full max-w-sm">
         <input
