@@ -1,4 +1,3 @@
-
 import Header from "./header/Header"
 import Sidebar from "./Sidebar"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
@@ -11,13 +10,18 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <Sidebar />
+      <div className="flex min-h-screen">
+        <Sidebar />
+      <div className="flex-1">
       <Header />
       <Routes>
-        <Route path="/" element={<Home />}/>
+        <Route path="/" element={<Home />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </div>
+  </div>
+</BrowserRouter>
+
     </>
   )
 }

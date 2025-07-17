@@ -18,10 +18,10 @@ const Footer:React.FC = () => {
           </div>
           <hr className="border-t border-gray-700" />
           <div className={"flex flex-wrap justify-center md:justify-between gap-6 text-sm sm:text-base"}>
-            <a href="#" className={"hover:underline"}>About us</a>
-            <a href="#" className={"hover:underline"}>Contact us</a>
-            <a href="#" className={"hover:underline"}>Delivery and payment</a>
-            <a href="#" className={"hover:underline"}>Privacy policy</a>
+            <a href="#" className={"hover:text-amber-600"}>About us</a>
+            <a href="#" className={"hover:text-amber-600"}>Contact us</a>
+            <a href="#" className={"hover:text-amber-600"}>Delivery and payment</a>
+            <a href="#" className={"hover:text-amber-600"}>Privacy policy</a>
           </div>
           <hr className="border-t border-gray-700" />
           <div className="text-right text-sm text-gray-400">© 2025 ReadBook. All rights reserved.</div>
