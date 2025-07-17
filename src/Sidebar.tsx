@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { BiFoodMenu } from "react-icons/bi";
 import { FaWindowClose } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { categories } from "./data/categories";
 
 const Sidebar: React.FC = () => {
   const[isOpen, setIsOpen] = useState(false);
-
-  const categories = ["Fantasy", "Science", "Detective", "Children's", "History"];
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
