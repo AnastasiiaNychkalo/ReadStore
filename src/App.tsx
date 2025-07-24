@@ -3,7 +3,6 @@ import Sidebar from "./Sidebar"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Footer from "./footer"
-import Catalog from "./pages/Catalog"
 
 function App() {
 
@@ -17,7 +16,6 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/catalog" element={<Catalog />} />
       </Routes>
       <Footer />
     </div>
