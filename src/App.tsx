@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Footer from "./footer"
 import Catalog from "./pages/Catalog"
+import PageBook from "./pages/PageBook"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
+        <Route path="/book/:id" element={<PageBook />} />
       </Routes>
       <Footer />
     </div>
