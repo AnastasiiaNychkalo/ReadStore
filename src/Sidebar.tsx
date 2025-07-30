@@ -13,12 +13,12 @@ const Sidebar: React.FC = () => {
   return (
     <>
       {!isOpen && (
-        <div className={"sm:hidden fixed top-4 left-4 z-50"}>
+        <div className={"sm:hidden fixed top-4 left-4 z-52"}>
           <button onClick={toggleMenu} className="text-3xl text-gray-700 bg-white p-2 rounded shadow"><BiFoodMenu /></button>
         </div>
       )}
 
-      <div className={`fixed top-0 left-0 h-screen w-64 bg-white shadow-lg z-40 p-4 flex flex-col transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"} sm:translate-x-0 sm:fixed`}>
+      <div className={`fixed top-0 left-0 h-screen w-64 bg-white shadow-lg z-52 p-4 flex flex-col transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"} sm:translate-x-0 sm:fixed`}>
         <div className={"flex justify-end sm:hidden mb-6"}>
           <button onClick={toggleMenu} className="text-2xl text-gray-700"><FaWindowClose /></button>
         </div>

@@ -5,6 +5,8 @@ import Home from "./pages/Home"
 import Footer from "./footer"
 import Catalog from "./pages/Catalog"
 
+import Basket from "./pages/Basket"
+
 function App() {
 
 
@@ -18,6 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
+
+        <Route path="/basket" element={<Basket />} />
       </Routes>
       <Footer />
     </div>

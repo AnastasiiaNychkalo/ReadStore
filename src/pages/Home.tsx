@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import banner from "../../public/banner.jpg";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import type { Book } from "../interfaces";
+import { useBasket } from "../BasketContext";
 
 const Home: React.FC = () => {
   const [popular, setPopular] = useState<Book[]>([]);
   const [newArrivals, setNewArrivals] = useState<Book[]>([]);
+  const { addToBasket } = useBasket();
 
   useEffect(() => {
     fetch("https://gutendex.com/books")
@@ -19,7 +21,7 @@ const Home: React.FC = () => {
 
 
   return (
-    <main className="max-w-7xl mx-auto p-4 space-y-12">
+    <main className="max-w-7xl mx-auto p-4 space-y-12 pt-52">
 
       <div className={"bg-gradient-to-r from-amber-100 to-white rounded-lg overflow-hidden flex flex-col md:flex-row h-64 shadow-md"}>
         <div className={"flex flex-col justify-center px-6 py-4 w-full md:w-1/2"}>
@@ -61,10 +63,7 @@ const Home: React.FC = () => {
                     <button className={"text-red-500 hover:text-red-600 text-xl"} title="selected">
                       <FiHeart />
                     </button>
-                    <button
-                      className={"bg-amber-500 text-white text-sm px-2 py-1 rounded hover:bg-amber-600 transition"}
-                      title="Add basket"
-                    >
+                    <button onClick={() => addToBasket(book)} className={"bg-amber-500 text-white text-sm px-2 py-1 rounded hover:bg-amber-600 transition"} title="Add basket">
                       <FiShoppingCart />
                     </button>
                   </div>
@@ -109,7 +108,7 @@ const Home: React.FC = () => {
                       <FiHeart />
                     </button>
                     <button
-                      className={"bg-amber-500 text-white text-sm px-2 py-1 rounded hover:bg-amber-600 transition"}
+                      onClick={() => addToBasket(book)} className={"bg-amber-500 text-white text-sm px-2 py-1 rounded hover:bg-amber-600 transition"}
                       title="Add basket"
                     >
                       <FiShoppingCart />
