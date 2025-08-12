@@ -3,13 +3,15 @@ import { useNavigate } from "react-router-dom"
 import logo from "../../public/logo.png"
 import { FaSearch } from "react-icons/fa"
 import { FiHeart, FiShoppingCart, FiUser, FiMenu } from "react-icons/fi"
+import { useBasket } from "../BasketContext";
 
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
-
+  const { basket } = useBasket();
 
   return (
+    <div className="fixed top-0 left-0 w-full z-50 bg-white shadow">
     <div className={"max-w-7xl mx-auto flex items-center justify-around gap-4 px-4 py-2 xl:h-50"}>
       <img src={logo} alt="Logo" className={"h-30 sm:h-40 md:h-45 lg:h-50 xl:h-60 hover:cursor-alias"} onClick={() => navigate("/")}/>
       <div className="relative w-full max-w-sm">
@@ -30,10 +32,10 @@ const Header: React.FC = () => {
       </div>
 
       {/* basket */}
-      <div className="relative cursor-pointer">
+      <div className="relative cursor-pointer" onClick={() => navigate("/basket")}>
         <FiShoppingCart />
         <span className={"absolute -top-2 -right-2 bg-blue-500 text-white text-xs px-1.5 py-0.5 rounded-full"}>
-          3
+          {basket.length}
         </span>
       </div>
 
@@ -47,6 +49,7 @@ const Header: React.FC = () => {
       <div className={"sm:hidden text-3xl cursor-pointer"}>
         <FiMenu />
       </div>
+    </div>
     </div>
   )
 }

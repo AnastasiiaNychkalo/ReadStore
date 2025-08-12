@@ -6,6 +6,8 @@ import Footer from "./footer"
 import Catalog from "./pages/Catalog"
 import PageBook from "./pages/PageBook"
 
+import Basket from "./pages/Basket"
+
 function App() {
 
 
@@ -19,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
+        <Route path="/basket" element={<Basket />} />
         <Route path="/book/:id" element={<PageBook />} />
       </Routes>
       <Footer />

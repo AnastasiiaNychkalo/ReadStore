@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import type { Book } from "../interfaces";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
+import { useBasket } from "../BasketContext";
 import { Link } from "react-router-dom";
 
 const CATALOG_URL = "https://gutendex.com/books";
@@ -12,6 +13,7 @@ const  Catalog: React.FC = () => {
   const [search, setSearch] = useState("");
   const [sortAlphabetically, setSortAlphabetically] = useState(false);
   const [hasMore, setHasMore] = useState(true);
+  const { addToBasket } = useBasket();
 
   useEffect(() => {
     setLoading(true);
@@ -58,7 +60,7 @@ const  Catalog: React.FC = () => {
   }, [books, search, sortAlphabetically]);
 
   return (
-    <div className="max-w-7xl mx-auto p-4 space-y-12">
+    <div className="max-w-7xl mx-auto p-4 space-y-12 pt-54">
       <div className={"flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-4"}>
         <input type="text" placeholder="Search by title or author" className={"border p-2 rounded w-full sm:w-1/2"} value={search} onChange={e => {setSearch(e.target.value);}}/>
         <label className="flex items-center gap-2">
@@ -80,7 +82,7 @@ const  Catalog: React.FC = () => {
               <p className="text-lg font-semibold text-amber-600">$9.99</p>
               <div className="flex space-x-2">
                 <button className={"text-red-500 hover:text-red-600 text-xl"} title="Selected"><FiHeart /></button>
-                <button className={"bg-amber-500 text-white text-sm px-2 py-1 rounded hover:bg-amber-600 transition"} title="Add to basket"><FiShoppingCart /></button>
+                <button onClick={() => addToBasket(book)} className={"bg-amber-500 text-white text-sm px-2 py-1 rounded hover:bg-amber-600 transition"} title="Add to basket"><FiShoppingCart /></button>
               </div>
             </div>
           </div>
