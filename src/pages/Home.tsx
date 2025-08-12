@@ -3,6 +3,8 @@ import banner from "../../public/banner.jpg";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import type { Book } from "../interfaces";
 import { useBasket } from "../BasketContext";
+import { Link } from "react-router-dom";
+
 
 const Home: React.FC = () => {
   const [popular, setPopular] = useState<Book[]>([]);
@@ -46,13 +48,13 @@ const Home: React.FC = () => {
             return (
               <div key={book.id} className="bg-white shadow rounded p-2 flex flex-col">
                 <div className={"aspect-[2/3] bg-gray-100 rounded overflow-hidden mb-2"}>
-                  <img
-                    src={imageUrl}
-                    alt={book.title}
-                    className="w-full h-full object-contain"
-                  />
+                  <Link to={`/book/${book.id}`}>
+                    <img src={imageUrl} alt={book.title} className="w-full h-full object-contain"/>
+                  </Link>
                 </div>
-                <h3 className="text-sm font-semibold line-clamp-2 h-10">{book.title}</h3>
+                <Link to={`/book/${book.id}`}>
+                  <h3 className="text-sm font-semibold line-clamp-2 h-10">{book.title}</h3>
+                </Link>
                 <p className="text-sm text-gray-500 mt-1">{authorName}</p>
                 <p className="text-sm text-gray-500 mt-1 capitalize">
                   {book.subjects.slice(0, 3).join(", ")}
@@ -90,13 +92,17 @@ const Home: React.FC = () => {
             return (
               <div key={book.id} className="bg-white shadow rounded p-2 flex flex-col">
                 <div className={"aspect-[2/3] bg-gray-100 rounded overflow-hidden mb-2"}>
+                <Link to={`/book/${book.id}`}>
                   <img
                     src={imageUrl}
                     alt={book.title}
                     className="w-full h-full object-contain"
                   />
+                </Link>
                 </div>
+                <Link to={`/book/${book.id}`}>
                 <h3 className="text-sm font-semibold line-clamp-2 h-10">{book.title}</h3>
+                </Link>
                 <p className="text-sm text-gray-500 mt-1">{authorName}</p>
                 <p className="text-sm text-gray-500 mt-1 capitalize">
                   {book.subjects.slice(0, 3).join(", ")}

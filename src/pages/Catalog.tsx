@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import type { Book } from "../interfaces";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import { useBasket } from "../BasketContext";
+import { Link } from "react-router-dom";
 
 const CATALOG_URL = "https://gutendex.com/books";
 
@@ -70,8 +71,12 @@ const  Catalog: React.FC = () => {
       <div className={"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"}>
         {filteredBooks.map(book => (
           <div key={book.id} className="border p-2 rounded shadow flex flex-col h-full">
-            <img src={book.formats["image/jpeg"] || "https://placehold.co/150x220?text=No+Image"} alt={book.title} className={"w-full h-[220px] object-cover mb-2"}/>
-            <h3 className="text-lg font-bold line-clamp-2 mb-1">{book.title}</h3>
+            <Link to={`/book/${book.id}`}>
+              <img src={book.formats["image/jpeg"] || "https://placehold.co/150x220?text=No+Image"} alt={book.title} className={"w-full h-[220px] object-cover mb-2"}/>
+            </Link>
+            <Link to={`/book/${book.id}`}>
+              <h3 className="text-lg font-bold line-clamp-2 mb-1">{book.title}</h3>
+            </Link>
             <p className="text-sm text-gray-600 mb-2">{book.authors.map(a => a.name).join(", ") || "Unknown Author"}</p>
             <div className="mt-auto pt-2 flex items-center justify-between">
               <p className="text-lg font-semibold text-amber-600">$9.99</p>
