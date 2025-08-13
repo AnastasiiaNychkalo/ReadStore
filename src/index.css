@@ -1,1 +1,11 @@
 @import "tailwindcss";
+@media (min-width: 640px) and (max-width: 1439px) {
+  .ml-custom {
+    margin-left: 190px;
+  }
+}
+@media (min-width: 1440px) and (max-width: 1650px) {
+  .ml-custom-two {
+    margin-left: 110px;
+  }
+}
