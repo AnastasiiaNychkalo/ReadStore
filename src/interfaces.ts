@@ -4,6 +4,9 @@ export interface Book {
   authors: { name: string }[];
   formats: { [key: string]: string };
   subjects: string[];
+  languages: string;
+  summaries: string;
+  download_count: number;
 }
 
 export interface BasketItem {

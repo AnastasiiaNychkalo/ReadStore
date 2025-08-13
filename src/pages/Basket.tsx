@@ -4,10 +4,11 @@ import { FiTrash } from "react-icons/fi";
 const Basket: React.FC = () => {
   const { basket, updateQuantity, removeFromBasket, total } = useBasket();
 
-  if (basket.length === 0) return <p className="text-center mt-10">Your basket is empty.</p>
+  if (basket.length === 0) return <p className="text-center mt-60">Your basket is empty.</p>
 
   return (
     <div className="max-w-4xl mx-auto p-4 space-y-6 pt-54">
+      <div className="ml-custom">
     {basket.map(({ book, quantity }) => (
       <div key={book.id} className="flex items-center gap-4 border-b pb-4">
         <img src={book.formats["image/jpeg"] || "https://placehold.co/80x120"} className="w-20 h-28 object-cover" />
@@ -34,6 +35,7 @@ const Basket: React.FC = () => {
     <button className={"mt-4 px-6 py-2 bg-amber-600 text-white rounded hover:bg-amber-700"}>
       Checkout
     </button>
+    </div>
   </div>
   );
 };
