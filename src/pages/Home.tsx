@@ -4,12 +4,13 @@ import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import type { Book } from "../interfaces";
 import { useBasket } from "../BasketContext";
 import { Link } from "react-router-dom";
-
+import { useSelected } from "../SelectedContent";
 
 const Home: React.FC = () => {
   const [popular, setPopular] = useState<Book[]>([]);
   const [newArrivals, setNewArrivals] = useState<Book[]>([]);
   const { addToBasket } = useBasket();
+  const { addToSelected} = useSelected();
 
   useEffect(() => {
     fetch("https://gutendex.com/books")
@@ -20,7 +21,6 @@ const Home: React.FC = () => {
       })
       .catch(err => console.error("Fetch error:", err));
   }, []);
-
 
   return (
     <main className="max-w-7xl mx-auto p-4 space-y-12 pt-52 ">
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
                   <div className="mt-auto flex items-center justify-between">
                     <p className="text-lg font-semibold mt-2 text-amber-600">$9.99</p>
                     <div className="flex space-x-2">
-                      <button className={"text-red-500 hover:text-red-600 text-xl"} title="selected">
+                      <button onClick={() => addToSelected(book)} className={"text-red-500 hover:text-red-600 text-xl"} title="selected">
                         <FiHeart />
                       </button>
                       <button onClick={() => addToBasket(book)} className={"bg-amber-500 text-white text-sm px-2 py-1 rounded hover:bg-amber-600 transition"} title="Add basket">

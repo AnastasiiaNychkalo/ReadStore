@@ -5,6 +5,7 @@ import { FaSearch } from "react-icons/fa"
 import { FiHeart, FiShoppingCart, FiUser, FiMenu } from "react-icons/fi"
 import { FaTimes } from "react-icons/fa";
 import { useBasket } from "../BasketContext";
+import { useSelected } from "../SelectedContent";
 
 interface HeaderProps {
   isSidebarOpen: boolean;
@@ -14,6 +15,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ isSidebarOpen, onBurgerClick }) => {
   const navigate = useNavigate();
   const { basket } = useBasket();
+  const { selected } = useSelected();
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-white shadow">
@@ -33,10 +35,10 @@ const Header: React.FC<HeaderProps> = ({ isSidebarOpen, onBurgerClick }) => {
           <FaSearch className={"absolute right-3 top-1/2 transform -translate-y-1/2 text-2xl"} />
         </div>
         <div className={"hidden sm:flex items-center gap-8 text-2xl text-gray-600 relative"}>
-          <div className="relative cursor-pointer">
+          <div className="relative cursor-pointer" onClick={() => navigate("/selected")}>
             <FiHeart />
             <span className={"absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full"}>
-              2
+            {selected.length}
             </span>
           </div>
 

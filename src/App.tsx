@@ -7,6 +7,7 @@ import Footer from "./footer"
 import Catalog from "./pages/Catalog"
 import PageBook from "./pages/PageBook"
 import Basket from "./pages/Basket"
+import Selected from "./pages/Selected";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,19 +18,20 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <div className="flex min-h-screen">
+    <div className="flex min-h-screen">
         <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar}  />
-      <div className="flex-1">
-      <Header isSidebarOpen={isSidebarOpen} onBurgerClick={toggleSidebar} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/catalog" element={<Catalog />} />
-        <Route path="/basket" element={<Basket />} />
-        <Route path="/book/:id" element={<PageBook />} />
-      </Routes>
-      <Footer />
+        <div className="flex-1">
+          <Header isSidebarOpen={isSidebarOpen} onBurgerClick={toggleSidebar} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/basket" element={<Basket />} />
+            <Route path="/selected" element={<Selected />} />
+            <Route path="/book/:id" element={<PageBook />} />
+          </Routes>
+          <Footer />
+      </div>
     </div>
-  </div>
 </BrowserRouter>
 
     </>

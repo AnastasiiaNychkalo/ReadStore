@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import type { Book } from "../interfaces";
 import { useParams } from "react-router-dom";
+import { useBasket } from "../BasketContext";
+import { useSelected } from "../SelectedContent"
 
 const PageBook:React.FC = () => {
   const { id } = useParams();
   const [book, setBook] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
-
+  const { addToBasket } = useBasket();
+  const { addToSelected } = useSelected();
 
   useEffect(() => {
     fetch(`https://gutendex.com/books/${id}`)
@@ -32,8 +35,8 @@ const PageBook:React.FC = () => {
           <img src={book.formats["image/jpeg"] || "https://placehold.co/150x220?text=No+Image"} alt={book.title} className={"w-full h-[220px] object-cover mb-2"} />
           <p className="text-lg font-semibold text-amber-600 mb-2">$9.99</p>
           <div className="flex space-x-2">
-            <button className={"text-red-500 hover:text-red-600 text-xl"} title="Selected"><FiHeart /></button>
-            <button className={"bg-amber-500 text-white text-sm px-2 py-1 rounded hover:bg-amber-600 transition"} title="Add to basket"><FiShoppingCart /></button>
+            <button onClick={() => addToSelected(book)}  className={"text-red-500 hover:text-red-600 text-xl"} title="Selected"><FiHeart /></button>
+            <button onClick={() => addToBasket(book)} className={"bg-amber-500 text-white text-sm px-2 py-1 rounded hover:bg-amber-600 transition"} title="Add to basket"><FiShoppingCart /></button>
           </div>
         </div>
         <div className="overflow-y-auto pr-4" style={{ maxHeight: "500px" }}>
