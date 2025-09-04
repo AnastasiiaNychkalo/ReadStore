@@ -21,3 +21,16 @@ export interface BasketContextType {
   updateQuantity: (bookId: number, quantity: number) => void;
   total: number;
 }
+
+export interface SelectedItem {
+  book: Book;
+  quantity: number;
+}
+
+export interface SelectedContextType {
+  selected: SelectedItem[];
+  addToSelected: (book: Book) => void;
+  removeFromSelected: (bookId: number) => void;
+  updateQuantity: (bookId: number, quantity: number) => void;
+  total: number;
+}

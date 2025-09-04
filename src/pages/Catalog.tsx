@@ -3,6 +3,7 @@ import type { Book } from "../interfaces";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import { useBasket } from "../BasketContext";
 import { Link } from "react-router-dom";
+import { useSelected } from "../SelectedContent";
 
 const CATALOG_URL = "https://gutendex.com/books";
 
@@ -14,6 +15,7 @@ const  Catalog: React.FC = () => {
   const [sortAlphabetically, setSortAlphabetically] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const { addToBasket } = useBasket();
+  const { addToSelected } = useSelected();
 
   useEffect(() => {
     setLoading(true);
@@ -82,7 +84,7 @@ const  Catalog: React.FC = () => {
               <div className="mt-auto pt-2 flex items-center justify-between">
                 <p className="text-lg font-semibold text-amber-600">$9.99</p>
                 <div className="flex space-x-2">
-                  <button className={"text-red-500 hover:text-red-600 text-xl"} title="Selected"><FiHeart /></button>
+                  <button onClick={() => addToSelected(book)} className={"text-red-500 hover:text-red-600 text-xl"} title="Selected"><FiHeart /></button>
                   <button onClick={() => addToBasket(book)} className={"bg-amber-500 text-white text-sm px-2 py-1 rounded hover:bg-amber-600 transition"} title="Add to basket"><FiShoppingCart /></button>
                 </div>
               </div>
