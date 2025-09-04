@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import banner from "../../public/banner.jpg";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import type { Book } from "../interfaces";
-import { useBasket } from "../BasketContext";
+import { useBasket } from "../context/BasketContext";
 import { Link } from "react-router-dom";
 import { useSelected } from "../SelectedContent";
 

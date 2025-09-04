@@ -1,5 +1,5 @@
 import  { createContext, useContext, useEffect, useState} from "react";
-import type { Book, BasketItem, BasketContextType } from "./interfaces.ts";
+import type { Book, BasketItem, BasketContextType } from "../interfaces.ts";
 import type { ReactNode } from "react";
 
 interface BasketProviderProps {

@@ -1,4 +1,4 @@
-import { useBasket } from "../BasketContext";
+import { useBasket } from "../context/BasketContext";
 import { FiTrash } from "react-icons/fi";
 
 const Basket: React.FC = () => {

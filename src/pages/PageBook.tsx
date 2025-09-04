@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import type { Book } from "../interfaces";
 import { useParams } from "react-router-dom";
-import { useBasket } from "../BasketContext";
+import { useBasket } from "../context/BasketContext";
 import { useSelected } from "../SelectedContent"
 
 const PageBook:React.FC = () => {

@@ -1,6 +1,6 @@
 import { useSelected } from "../SelectedContent";
 import { FiTrash, FiShoppingCart } from "react-icons/fi";
-import { useBasket } from "../BasketContext";
+import { useBasket } from "../context/BasketContext";
 
 const Selected: React.FC = () => {
   const { selected, updateQuantity, removeFromSelected, total } = useSelected();

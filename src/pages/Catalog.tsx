@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import type { Book } from "../interfaces";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
-import { useBasket } from "../BasketContext";
+import { useBasket } from "../context/BasketContext";
 import { Link } from "react-router-dom";
 import { useSelected } from "../SelectedContent";
 

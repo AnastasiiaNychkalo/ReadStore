@@ -4,7 +4,7 @@ import logo from "../../public/logo.png"
 import { FaSearch } from "react-icons/fa"
 import { FiHeart, FiShoppingCart, FiUser, FiMenu } from "react-icons/fi"
 import { FaTimes } from "react-icons/fa";
-import { useBasket } from "../BasketContext";
+import { useBasket } from "../context/BasketContext";
 import { useSelected } from "../SelectedContent";
 
 interface HeaderProps {
